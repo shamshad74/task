@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Product List</title>
+  </head>
+  <body>
+    <h1>Product List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Mobile Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td>{{ product.url }}</td>
+          <td>{{ product.title }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.mobile_number }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

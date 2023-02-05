@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Product List</h1>
+  <form id="fetch-form">
+    {% csrf_token %}
+    <input type="text" name="url" id="url-input">
+    <button type="submit">Fetch</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Size</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in product_list %}
+        <tr>
+          <td><a href="{% url 'flipkart:detail' product.pk %}">{{ product.title }}</a></td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.size }}</td>
+          <td><a href="{{ product.url }}">{{ product.url }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
